@@ -1,0 +1,113 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+/* ─── Column ─────────────────────────────────── */
+.column {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  min-height: 200px;
+}
+
+.column.dragOver {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+/* ─── Column Header ──────────────────────────── */
+.columnHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.columnTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stageIcon {
+  font-size: 16px;
+}
+
+.todo .stageIcon { color: var(--todo); }
+.inprogress .stageIcon { color: var(--inprogress); }
+.done .stageIcon { color: var(--done); }
+
+.stageName {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.count {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.count_todo { background: var(--todo-bg); color: var(--todo); }
+.count_inprogress { background: var(--inprogress-bg); color: var(--inprogress); }
+.count_done { background: var(--done-bg); color: var(--done); }
+
+/* ─── Task List ──────────────────────────────── */
+.taskList {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 120px;
+}
+
+/* ─── Empty State ────────────────────────────── */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 32px 16px;
+  text-align: center;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.emptyState.emptyDragOver {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.emptyIcon {
+  font-size: 22px;
+  color: var(--text-3);
+}
+
+.emptyState p {
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+/* ─── Responsive ─────────────────────────────── */
+@media (max-width: 900px) {
+  .board {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
